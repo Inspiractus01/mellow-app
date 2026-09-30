@@ -3,17 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mellow: save your eyes for later</title>
-<meta name="description" content="Mellow warms, dims and softens your Mac screen through the day, and reminds you to rest your eyes. Free, with 14 days of Premium.">
+<title>Mellow: Night Shift alternative for Mac that also dims and softens your screen</title>
+<meta name="description" content="Mellow is a free Mac menu bar app that warms, dims and softens your screen through the day and reminds you to take eye breaks. A Night Shift alternative for long days at the computer.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Inspiractus">
+<meta name="application-name" content="Mellow">
 <meta name="theme-color" content="#2e2e2e">
 <link rel="canonical" href="https://inspiractus01.github.io/mellow-app/">
 <link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon-large.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Mellow: save your eyes for later">
-<meta property="og:description" content="Mellow warms, dims and softens your Mac screen through the day, and reminds you to rest your eyes.">
+<meta property="og:site_name" content="Mellow">
+<meta property="og:title" content="Mellow: Night Shift, but better">
+<meta property="og:description" content="A free Mac menu bar app that warms, dims and softens your screen through the day, and reminds you to take eye breaks.">
 <meta property="og:url" content="https://inspiractus01.github.io/mellow-app/">
 <meta property="og:image" content="https://inspiractus01.github.io/mellow-app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mellow app icon with the text: Save your eyes for later.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mellow: Night Shift, but better">
+<meta name="twitter:description" content="A free Mac menu bar app that warms, dims and softens your screen, and reminds you to take eye breaks.">
+<meta name="twitter:image" content="https://inspiractus01.github.io/mellow-app/og.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Mellow",
+  "description": "A Mac menu bar app that warms, dims and softens your screen through the day and reminds you to take eye breaks.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "macOS 14 or later",
+  "url": "https://inspiractus01.github.io/mellow-app/",
+  "downloadUrl": "https://github.com/Inspiractus01/mellow-app/releases/latest/download/Mellow.dmg",
+  "image": "https://inspiractus01.github.io/mellow-app/icon-large.png",
+  "screenshot": ["https://inspiractus01.github.io/mellow-app/shot-auto.png", "https://inspiractus01.github.io/mellow-app/break.png", "https://inspiractus01.github.io/mellow-app/shot-manual.png"],
+  "softwareVersion": "0.4.0",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "author": { "@type": "Person", "name": "Inspiractus", "url": "https://github.com/Inspiractus01" },
+  "publisher": { "@type": "Organization", "name": "Low Sun Labs" }
+}
+</script>
 <style>
   /* The page itself warms and dims as you scroll, like Mellow does to your screen (--bg, --fg, --muted, --line are set by script). */
   :root {
@@ -147,7 +176,7 @@
 
 <div class="wrap">
   <header>
-    <a class="brand" href="#"><img src="icon.png" alt="" width="30" height="30">Mellow</a>
+    <a class="brand" href="#"><img src="icon.png" alt="Mellow logo" width="30" height="30">Mellow</a>
     <a class="btn small" href="https://github.com/Inspiractus01/mellow-app/releases/latest/download/Mellow.dmg">Download</a>
   </header>
 
@@ -191,7 +220,7 @@
         <h2>Pick a preset, or forget about it.</h2>
         <p class="sub">Choose Daylight, Evening or Bedtime yourself. Or turn on Auto: tell Mellow your city and when you wake up, and it adjusts your screen through the day on its own.</p>
       </div>
-      <img class="app" src="shot-auto.png" width="779" height="1000" alt="Mellow settings: your city, wake-up time and a plan for the day.">
+      <img class="app" decoding="async" src="shot-auto.png" width="779" height="1000" alt="Mellow settings: your city, wake-up time and a plan for the day.">
     </div>
   </section>
 
@@ -216,7 +245,7 @@
 
   <section class="block">
     <div class="split">
-      <img class="brk" src="break.png" width="1280" height="800" alt="Mellow's break screen with a 20 second countdown.">
+      <img class="brk" decoding="async" src="break.png" width="1280" height="800" alt="Mellow's break screen with a 20 second countdown.">
       <div class="txt">
         <h2>Filters aren't enough. Take a break.</h2>
         <p class="sub">Warmer colors don't rest your eyes. Looking away does. Every 20 minutes, Mellow covers the screen for 20 seconds. Busy? You can skip it or push it back 5 minutes. Your eyes would rather you didn't.</p>
