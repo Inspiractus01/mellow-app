@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mellow Privacy</title>
+<meta name="description" content="What the Mellow app and website send, and to whom. No accounts, no analytics, no tracking.">
+<link rel="canonical" href="https://inspiractus01.github.io/mellow-app/privacy.html">
+<link rel="icon" href="icon.png">
+<meta name="theme-color" content="#2e2e2e">
+<style>
+  :root {
+    --bg: #2e2e2e; --fg: #eeeae3; --muted: #a29d95; --line: rgba(238, 234, 227, .12); --amber: #d4b06b;
+    --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+  header { display: flex; align-items: center; gap: 10px; height: 76px; }
+  header a { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; }
+  header img { width: 28px; height: 28px; }
+  h1 { font-size: clamp(32px, 6vw, 44px); line-height: 1.1; margin: 40px 0 8px; letter-spacing: -.02em; }
+  h2 { font-size: 20px; margin: 40px 0 8px; }
+  p, li { color: var(--muted); }
+  p { margin: 0 0 12px; }
+  ul { padding-left: 20px; margin: 0 0 12px; }
+  li { margin-bottom: 6px; }
+  strong { color: var(--fg); font-weight: 600; overflow-wrap: anywhere; }
+  .lead { font-size: 19px; color: var(--fg); margin-top: 24px; }
+  footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 28px 0 44px; font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><a href="./"><img src="icon.png" alt="">Mellow</a></header>
+
+  <h1>Privacy</h1>
+  <p>Last updated 4 October 2026</p>
+
+  <p class="lead">Mellow has no accounts, no analytics and no tracking. Your settings stay on your Mac.</p>
+
+  <h2>What stays on your Mac</h2>
+  <ul>
+    <li>Your settings, presets, schedule, sleep times and chosen place.</li>
+    <li>Your trial start date and license key.</li>
+    <li>Your location, if you allow it. Mellow uses it only to work out sunrise and sunset, on your Mac.</li>
+  </ul>
+
+  <h2>What leaves your Mac</h2>
+  <ul>
+    <li><strong>Update check, once a day.</strong> Mellow asks GitHub for the latest version number. GitHub sees your IP address, nothing else about you.</li>
+    <li><strong>City search.</strong> When you type a city, the text goes to Apple to find it on the map.</li>
+    <li><strong>License activation.</strong> When you activate or deactivate Premium, your license key and your Mac's name go to Lemon Squeezy, so you can see which Macs use your key.</li>
+  </ul>
+
+  <h2>Buying Premium</h2>
+  <p>Payments go through Lemon Squeezy, who handle your payment details, invoice and taxes. We never see your card. Their <a href="https://www.lemonsqueezy.com/privacy">privacy policy</a> applies there. We get your name, email and order, to help you with your purchase.</p>
+
+  <h2>This website</h2>
+  <p>The site is hosted on GitHub Pages and loads one animation library from cdnjs (Cloudflare). Both see your IP address in their logs. There are no cookies and no analytics.</p>
+
+  <h2>Email</h2>
+  <p>If you email us, we keep the conversation to reply to you. We don't add you to any list.</p>
+
+  <h2>Your data</h2>
+  <p>We don't sell or share anything. To have your data removed, or to ask what we have, email <a href="mailto:lowsunlabs@proton.me">lowsunlabs@proton.me</a>. To remove everything Mellow keeps on your Mac, delete the app, the folder <strong>~/Library/Application Support/Mellow</strong> and the file <strong>~/Library/Preferences/com.inspiractus.mellow.plist</strong>.</p>
+
+  <footer>© 2026 Low Sun Labs. Made by Inspiractus.</footer>
+</div>
+</body>
+</html>
