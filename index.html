@@ -131,11 +131,11 @@
   .bar b { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; } .bar b:nth-child(2) { background: #febc2e; } .bar b:nth-child(3) { background: #28c840; }
   .win svg { display: block; width: 100%; aspect-ratio: 16 / 6.5; }
   .stage .brk { position: absolute; inset: 0; z-index: 6; display: flex; flex-direction: column; justify-content: center; padding: 0 16%;
-    background: rgba(46, 46, 46, .97); color: #d1d1d1; font: 16px/1.7 var(--mono); opacity: 0; }
-  .stage .brk small { color: #808080; } .stage .brk b { font-size: clamp(22px, 3.4vw, 40px); font-weight: 400; margin: 6px 0 4px; }
-  .stage .brk p { color: #808080; font-size: 14px; margin-bottom: 18px; }
-  .stage .brk .bar2 { display: flex; align-items: center; gap: 16px; } .stage .brk .bar2 u { flex: 0 0 min(50%, 360px); height: 10px; background: #4d4d4d; border-radius: 2px; overflow: hidden; }
-  .stage .brk .bar2 u i { position: static; display: block; height: 100%; width: 0; background: #d4b06b; } .stage .brk .bar2 span { color: #d4b06b; }
+    background: rgba(36, 33, 29, .97); color: var(--fg); font: 16px/1.6 var(--sans); opacity: 0; }
+  .stage .brk small { color: var(--muted); font-size: 14px; } .stage .brk b { font: 500 clamp(26px, 4vw, 48px)/1.1 var(--display); letter-spacing: -.04em; margin: 8px 0 10px; }
+  .stage .brk p { color: var(--muted); font-size: 15px; margin-bottom: 20px; }
+  .stage .brk .bar2 { display: flex; align-items: center; gap: 16px; } .stage .brk .bar2 u { flex: 0 0 min(50%, 360px); height: 4px; background: rgba(241, 234, 223, .13); border-radius: 2px; overflow: hidden; }
+  .stage .brk .bar2 u i { position: static; display: block; height: 100%; width: 0; background: var(--amber); } .stage .brk .bar2 span { color: var(--amber); font: 14px var(--mono); }
   .note { padding: 16px 20px 20px; } .note h5 { margin: 0 0 6px; font: 650 18px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; } .note p { color: #66666c; font-size: 14px; }
 
   section.block { padding: 140px 0 0; }
@@ -156,8 +156,8 @@
   .mini i { position: absolute; inset: 0; pointer-events: none; }
   .mini .t { mix-blend-mode: multiply; background: #fff; z-index: 1; } .mini .m { background: rgb(140, 133, 117); opacity: 0; z-index: 2; } .mini .d { background: #000; opacity: 0; z-index: 3; }
   .mini .brk { position: absolute; inset: 0; z-index: 4; display: flex; flex-direction: column; justify-content: center; padding: 0 12%;
-    background: rgba(46, 46, 46, .96); color: #d1d1d1; font: 13px/1.6 var(--mono); opacity: 0; }
-  .mini .brk b { font-size: 20px; font-weight: 500; } .mini .brk span { color: var(--amber); }
+    background: rgba(36, 33, 29, .96); color: var(--fg); font: 13px/1.5 var(--sans); opacity: 0; }
+  .mini .brk small { color: var(--muted); } .mini .brk b { font: 500 22px/1.2 var(--display); letter-spacing: -.03em; } .mini .brk span { color: var(--amber); font: 12px var(--mono); }
   .feat { list-style: none; margin: 18px 0 0; padding: 0; }
   .feat li { display: flex; justify-content: space-between; padding: 11px 2px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; transition: color .3s; }
   .feat li::after { content: "–"; opacity: .5; }
@@ -280,7 +280,7 @@
           <div class="note"><h5>Notes from the lake</h5><p>Left early. The light over the water was worth it.</p></div>
         </div>
         <i class="t" id="st"></i><i class="m" id="sm"></i><i class="d" id="sd"></i>
-        <div class="brk" id="brk"><small>~ break</small><b>look away.</b><p>focus on something ~6 m away. blink a few times.</p>
+        <div class="brk" id="brk"><small>Break</small><b>Look away.</b><p>Focus on something about 6 m away. Blink a few times.</p>
           <div class="bar2"><u><i id="bfill"></i></u><span id="bclock">00:20</span></div></div>
       </div>
       <div class="track" aria-hidden="true"><i id="dot"></i><span style="left:0;transform:none">Day</span><span style="left:50%">Evening</span><span style="right:0;left:auto;transform:none">Bedtime</span></div>
@@ -293,7 +293,7 @@
         <h2>Set it once.</h2>
         <p class="sub">Tell Mellow where you live and when you wake up. It follows the sun and your sleep from there. Rather choose yourself? Pick Daylight, Evening or Bedtime.</p>
       </div>
-      <img class="app" decoding="async" src="shot-auto.png" width="779" height="1000" alt="Mellow settings: your city, wake-up time and a plan for the day.">
+      <img class="app" decoding="async" src="shot-auto.png" width="1080" height="1430" alt="Mellow settings: your city, wake-up time and a plan for the day.">
     </div>
   </section>
 
@@ -309,7 +309,7 @@
       <figure class="pane me" id="pm">
         <h3>Mellow</h3>
         <div class="mini"><svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#lake"/></svg><i class="t"></i><i class="m"></i><i class="d"></i>
-          <div class="brk"><small>~ break</small><b>look away.</b><span>00:20</span></div></div>
+          <div class="brk"><small>Break</small><b>Look away.</b><span>00:20</span></div></div>
         <ul class="feat"><li data-k="warm">Warmer colors</li><li data-k="dim">Dimmer screen</li><li data-k="soft">Softer colors</li><li data-k="brk">Break reminders</li></ul>
       </figure>
     </div>
