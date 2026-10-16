@@ -102,21 +102,32 @@
   .water { height: 72px; background: linear-gradient(180deg, rgba(226, 150, 80, .10), transparent); -webkit-mask: linear-gradient(90deg, transparent, #000 30%, #000 85%, transparent); mask: linear-gradient(90deg, transparent, #000 30%, #000 85%, transparent); }
 
   /* "What is Mellow": a pinned screen that goes through a day as you scroll */
-  .what { height: 100vh; min-height: 620px; display: flex; align-items: center; }
-  .what-in { width: 100%; }
-  .stage { position: relative; isolation: isolate; overflow: hidden; border-radius: 18px; aspect-ratio: 16 / 9; width: min(100%, calc((100vh - 140px) * 16 / 9)); margin: 0 auto;
-    background: radial-gradient(90% 100% at 8% 0, #8fd0ff, transparent 62%), radial-gradient(80% 90% at 100% 100%, #ff9ed2, transparent 60%), linear-gradient(135deg, #6f86ff, #b98cff);
+  /* "How it works": one evening on a screen, pinned while you scroll. Captions above, the day's warmth below. */
+  .what { height: 100vh; min-height: 640px; display: flex; align-items: center; padding-top: 72px; }
+  .what-in { width: min(100%, calc((100vh - 300px) * 16 / 9)); margin: 0 auto; }
+  .story { display: grid; grid-template-columns: auto 1fr auto; align-items: end; gap: 24px; margin-bottom: 22px; }
+  .clock { font: 500 clamp(40px, 5vw, 64px)/1 var(--display); letter-spacing: -.045em; font-variant-numeric: tabular-nums; }
+  .steps { display: grid; }
+  .step { grid-area: 1 / 1; opacity: 0; transform: translateY(8px); transition: opacity .45s, transform .45s; color: var(--muted); font-size: 17px; }
+  .step b { display: block; color: var(--fg); font: 500 22px/1.2 var(--display); letter-spacing: -.025em; margin-bottom: 2px; }
+  .step.on { opacity: 1; transform: none; }
+  .kelvin { font: 14px/1 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; padding-bottom: 4px; }
+  .stage { position: relative; isolation: isolate; overflow: hidden; border-radius: 16px; aspect-ratio: 16 / 9; width: 100%;
+    background: linear-gradient(180deg, #b9cfdd 0%, #dfe8ec 55%, #efede7 100%);
     box-shadow: 0 50px 100px -40px rgba(0, 0, 0, .8), 0 0 0 1px var(--line), 0 0 0 10px rgba(241, 234, 223, .025); }
+  .track { position: relative; height: 4px; margin-top: 26px; border-radius: 2px; background: linear-gradient(90deg, #f4f1ea, #ffd7a1 45%, #e2965a 75%, #a85a32); }
+  .track i { position: absolute; top: 50%; left: 0; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: var(--fg); box-shadow: 0 0 0 4px var(--bg), 0 0 18px rgba(226, 180, 107, .6); }
+  .track span { position: absolute; top: 14px; font-size: 13px; color: var(--muted); transform: translateX(-50%); white-space: nowrap; }
   .stage i { position: absolute; inset: 0; pointer-events: none; }
   .stage .t { mix-blend-mode: multiply; z-index: 3; background: #fff; }
   .stage .m { z-index: 4; background: rgb(140, 133, 117); opacity: 0; }
   .stage .d { z-index: 5; background: #000; opacity: 0; }
   .menubar { position: absolute; inset: 0 0 auto 0; height: 26px; z-index: 1; display: flex; align-items: center; justify-content: space-between;
-    padding: 0 14px; font: 12px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111; background: rgba(255, 255, 255, .55); backdrop-filter: blur(18px); }
+    padding: 0 14px; font: 12px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1d1d1f; background: rgba(255, 255, 255, .5); backdrop-filter: blur(18px); }
   .menubar span { margin-right: 16px; } .menubar .r { display: flex; align-items: center; gap: 12px; } .menubar .r span { margin: 0; }
   .menubar img { width: 15px; height: 15px; border-radius: 4px; }
-  .win { position: absolute; z-index: 1; left: 50%; top: 14%; transform: translateX(-50%); width: 72%; background: #fff; border-radius: 11px;
-    box-shadow: 0 26px 60px rgba(0, 0, 0, .3), 0 0 0 1px rgba(0, 0, 0, .06); overflow: hidden; color: #1d1d1f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  .win { position: absolute; z-index: 1; left: 50%; top: 15%; transform: translateX(-50%); width: 64%; background: #fff; border-radius: 11px;
+    box-shadow: 0 30px 70px -10px rgba(40, 60, 80, .35), 0 0 0 1px rgba(0, 0, 0, .06); overflow: hidden; color: #1d1d1f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
   .bar { display: flex; align-items: center; gap: 7px; padding: 10px 13px; background: #f4f4f6; border-bottom: 1px solid #e6e6ea; font-size: 12px; color: #6b6b72; }
   .bar b { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; } .bar b:nth-child(2) { background: #febc2e; } .bar b:nth-child(3) { background: #28c840; }
   .win svg { display: block; width: 100%; aspect-ratio: 16 / 6.5; }
@@ -203,7 +214,8 @@
     section.block { padding-top: 96px; }
     .hero { padding-top: 40px; }
     .sun { left: 72%; }
-    .what { height: auto; min-height: 0; padding: 80px 0 0; } .stage { aspect-ratio: 4 / 3.6; } .win { width: 88%; }
+    .what { height: auto; min-height: 0; padding: 80px 0 0; } .what-in { width: 100%; } .stage { aspect-ratio: 4 / 3.6; } .win { width: 88%; }
+    .story { grid-template-columns: auto 1fr; } .kelvin { display: none; } .clock { font-size: 36px; } .step b { font-size: 19px; } .step { font-size: 15px; }
     .final { padding: 120px 0 100px; }
   }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn, header.top { transition: none; } }
@@ -247,10 +259,21 @@
 <div class="wrap">
   <section class="what" id="what">
     <div class="what-in">
+      <div class="story">
+        <div class="clock" id="clock">14:00</div>
+        <div class="steps">
+          <p class="step on"><b>Daytime</b>Your screen, untouched.</p>
+          <p class="step"><b>Sunset</b>Colors turn warmer.</p>
+          <p class="step"><b>Evening</b>Harsh colors soften.</p>
+          <p class="step"><b>Bedtime</b>The screen dims down.</p>
+          <p class="step"><b>Every 20 minutes</b>A moment to look away.</p>
+        </div>
+        <div class="kelvin" id="kelvin">6500 K</div>
+      </div>
       <div class="stage" id="stage">
         <div class="menubar">
           <div><span><b>Notes</b></span><span>File</span><span>Edit</span><span>View</span></div>
-          <div class="r"><img src="icon.png" alt=""><span id="mclock">Tue 09:00</span></div>
+          <div class="r"><img src="icon.png" alt=""><span id="mclock">Tue 14:00</span></div>
         </div>
         <div class="win">
           <div class="bar"><b></b><b></b><b></b><span style="margin-left:10px">Notes from the lake</span></div>
@@ -261,6 +284,7 @@
         <div class="brk" id="brk"><small>~ break</small><b>look away.</b><p>focus on something ~6 m away. blink a few times.</p>
           <div class="bar2"><u><i id="bfill"></i></u><span id="bclock">00:20</span></div></div>
       </div>
+      <div class="track" aria-hidden="true"><i id="dot"></i><span style="left:0;transform:none">Day</span><span style="left:50%">Evening</span><span style="right:0;left:auto;transform:none">Bedtime</span></div>
     </div>
   </section>
 
@@ -423,18 +447,29 @@ echo 'exec-once = mellow' >> ~/.config/hypr/autostart.conf</code><button type="b
             t >= 66 ? 255 : t <= 19 ? 0 : 138.5177312231 * Math.log(t - 10) - 305.0447927307]; };
   const gains = K => { const c = raw(K), n = raw(6500); return c.map((v, i) => Math.round(Math.min(255, Math.max(0, v / n[i] * 255)))); };
   const ramp = (x, a, b) => Math.min(1, Math.max(0, (x - a) / (b - a)));
+  const steps = document.querySelectorAll(".step");
+  let step = -1;
   function show(t) {
     const warm = ramp(t, .12, .36), soft = ramp(t, .36, .54), dim = ramp(t, .54, .7);
+    const now = t < .1 ? 0 : t < .36 ? 1 : t < .54 ? 2 : t < .74 ? 3 : 4;
+    if (now !== step) { steps.forEach((s, i) => s.classList.toggle("on", i === now)); step = now; }
+    const day = Math.min(1, t / .72);
+    $("dot").style.left = (day * 100).toFixed(2) + "%";
+    const kelvin = 6500 - warm * 3100 - dim * 700;  // Daylight 6500 K, Evening 3400 K, Bedtime 2700 K
+    $("kelvin").textContent = Math.round(kelvin / 10) * 10 + " K";
     // then a break, fast-forwarded: 20 seconds of countdown over the last part of the scroll
     const fade = ramp(t, .74, .8), run = ramp(t, .8, .97);
     $("brk").style.opacity = fade.toFixed(3);
     $("bfill").style.width = (run * 100).toFixed(1) + "%";
     $("bclock").textContent = "00:" + String(Math.ceil(20 * (1 - run))).padStart(2, "0");
-    $("st").style.background = `rgb(${gains(6500 - warm * 3800).join(",")})`;
+    $("st").style.background = `rgb(${gains(kelvin).join(",")})`;
     $("sm").style.opacity = (soft * .45 * .4).toFixed(3);
     $("sd").style.opacity = (dim * .45 * .6).toFixed(3);
-    const mins = Math.round((9 + Math.min(1, t / .74) * 14) * 60);
-    $("mclock").textContent = "Tue " + String(Math.floor(mins / 60) % 24).padStart(2, "0") + ":" + String(mins % 60).padStart(2, "0");
+    // 14:00 to 23:00 over the evening, in 5 minute steps
+    const mins = Math.round((14 + day * 9) * 12) * 5;
+    const hhmm = String(Math.floor(mins / 60) % 24).padStart(2, "0") + ":" + String(mins % 60).padStart(2, "0");
+    $("clock").textContent = hhmm;
+    $("mclock").textContent = "Tue " + hhmm;
   }
   const q = new URLSearchParams(location.search).get("day");  // ?day=0.6 freezes the demo, for screenshots
   const mobile = matchMedia("(max-width: 800px)").matches;
@@ -448,7 +483,7 @@ echo 'exec-once = mellow' >> ~/.config/hypr/autostart.conf</code><button type="b
     t: 1, ease: "none", onUpdate: () => show(state.t),
     scrollTrigger: mobile
       ? { trigger: "#stage", start: "top 75%", end: "bottom 15%", scrub: .5 }
-      : { trigger: "#what", start: "top top", end: "+=220%", pin: true, scrub: .6, anticipatePin: 1, invalidateOnRefresh: true },
+      : { trigger: "#what", start: "top top", end: "+=260%", pin: true, scrub: .8, anticipatePin: 1, invalidateOnRefresh: true },
   });
 })();
 </script>
