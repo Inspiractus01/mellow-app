@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://inspiractus01.github.io/mellow-app/">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon-large.png">
-<link rel="preload" href="fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mellow">
 <meta property="og:title" content="Mellow: Night Shift, but better">
@@ -45,18 +45,16 @@
 }
 </script>
 <style>
-  /* Self-hosted, so no font request leaves for Google. Fraunces (SIL OFL) for headings, Hanken Grotesk for text,
+  /* Self-hosted, so no font request leaves for Google. Geist (SIL OFL) for everything,
      JetBrains Mono where the page shows the app itself (its break screen and commands). */
-  @font-face { font-family: "Fraunces"; src: url(fonts/fraunces.woff2) format("woff2"); font-weight: 300 600; font-display: swap; }
-  @font-face { font-family: "Hanken Grotesk"; src: url(fonts/hanken-grotesk.woff2) format("woff2"); font-weight: 400 600; font-display: swap; }
+  @font-face { font-family: "Geist"; src: url(fonts/geist.woff2) format("woff2"); font-weight: 400 700; font-display: swap; }
   @font-face { font-family: "JetBrains Mono"; src: url(fonts/jetbrains-mono.woff2) format("woff2"); font-weight: 400 500; font-display: swap; }
 
   /* The page is one day: the sun in the hero sets as you scroll and the background warms and darkens (--bg is set by script). */
   :root {
     --bg: #24211d; --raised: #2d2924; --fg: #f1eadf; --muted: #a99f92; --line: rgba(241, 234, 223, .11); --soft: rgba(241, 234, 223, .035);
     --amber: #e2b46b; --ember: #c46a3c;
-    --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
-    --sans: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
   }
   * { box-sizing: border-box; }
@@ -69,12 +67,12 @@
   p { margin: 0; }
   :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
-  h1, h2, h3 { font-family: var(--serif); font-weight: 400; font-variation-settings: "SOFT" 100; }
+  h1, h2, h3 { font-weight: 600; }
 
   header.top { position: sticky; top: 0; z-index: 50; transition: background .3s, box-shadow .3s; }
   header.top.scrolled { background: color-mix(in srgb, var(--bg) 78%, transparent); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); }
   header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-  .brand { display: flex; align-items: center; gap: 10px; font: 500 22px/1 var(--serif); font-variation-settings: "SOFT" 100; text-decoration: none; }
+  .brand { display: flex; align-items: center; gap: 10px; font: 600 20px/1 var(--sans); letter-spacing: -.02em; text-decoration: none; }
   .brand img { width: 28px; height: 28px; }
 
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 48px; padding: 0 24px; border-radius: 24px; border: 0; cursor: pointer;
@@ -89,7 +87,7 @@
   /* hero: the headline over a horizon, with the app icon's sun sitting on it */
   .hero { position: relative; display: flex; flex-direction: column; min-height: calc(100svh - 72px); padding: 56px 0 0; }
   .hero .wrap { position: relative; z-index: 2; width: 100%; }
-  h1 { font-size: clamp(58px, 10vw, 136px); line-height: .92; letter-spacing: -.035em; margin: 0 0 34px; font-variation-settings: "SOFT" 100, "opsz" 144; }
+  h1 { font-size: clamp(54px, 9.4vw, 128px); line-height: .94; letter-spacing: -.055em; margin: 0 0 34px; }
   .lead { font-size: clamp(19px, 2.1vw, 22px); color: var(--muted); max-width: 30em; margin-bottom: 36px; }
   .get-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
   .fine { font-size: 14px; color: var(--muted); }
@@ -129,7 +127,7 @@
   .note { padding: 16px 20px 20px; } .note h5 { margin: 0 0 6px; font: 650 18px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; } .note p { color: #66666c; font-size: 14px; }
 
   section.block { padding: 140px 0 0; }
-  h2 { font-size: clamp(38px, 5vw, 64px); line-height: 1.02; letter-spacing: -.025em; margin: 0 0 20px; max-width: 14ch; font-variation-settings: "SOFT" 100, "opsz" 96; }
+  h2 { font-size: clamp(38px, 5vw, 64px); line-height: 1.02; letter-spacing: -.045em; margin: 0 0 20px; max-width: 14ch; }
   .sub { color: var(--muted); font-size: 19px; max-width: 31em; }
   .split { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
   .split img { width: 100%; height: auto; display: block; border-radius: 14px; }
@@ -140,7 +138,7 @@
   .cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 52px; }
   .pane { margin: 0; border-radius: 20px; padding: 22px; background: var(--soft); box-shadow: inset 0 0 0 1px var(--line); }
   .pane.me { background: linear-gradient(180deg, rgba(226, 180, 107, .07), rgba(226, 180, 107, .015)); box-shadow: inset 0 0 0 1px rgba(226, 180, 107, .55); }
-  .pane h3 { margin: 0 0 16px; font-size: 24px; line-height: 1; }
+  .pane h3 { margin: 0 0 16px; font-size: 22px; line-height: 1; letter-spacing: -.03em; }
   .mini { position: relative; isolation: isolate; overflow: hidden; border-radius: 12px; aspect-ratio: 16 / 9; background: #fff; }
   .mini svg { display: block; width: 100%; height: 100%; }
   .mini i { position: absolute; inset: 0; pointer-events: none; }
@@ -159,13 +157,13 @@
   .free { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
   .free > div { padding: 30px 30px 0 0; }
   .free > div + div { padding-left: 30px; border-left: 1px solid var(--line); }
-  .free h3 { margin: 0 0 10px; font-size: 26px; }
+  .free h3 { margin: 0 0 10px; font-size: 24px; letter-spacing: -.03em; }
   .free ul { margin: 0; padding: 0; list-style: none; } .free li { padding: 7px 0; color: var(--muted); } .free li::before { content: "✓"; color: var(--amber); margin-right: 12px; }
 
   /* downloads: one row per system, the visitor's own system first and marked */
   .systems { margin-top: 48px; border-top: 1px solid var(--line); display: flex; flex-direction: column; }
   .sys { display: grid; grid-template-columns: 200px 1fr auto; gap: 8px 32px; align-items: center; padding: 30px 0; border-bottom: 1px solid var(--line); }
-  .sys h3 { margin: 0; font-size: 30px; line-height: 1; }
+  .sys h3 { margin: 0; font-size: 28px; line-height: 1; letter-spacing: -.035em; }
   .sys .here { display: none; margin-top: 8px; font-size: 13px; color: var(--amber); }
   .sys.mine .here { display: block; }
   .sys > .btn { min-width: 172px; }
@@ -185,10 +183,10 @@
   .final h2 { max-width: none; margin: 0 auto 32px; font-size: clamp(42px, 6.4vw, 88px); }
   .final .get-row { justify-content: center; }
   .quote { margin: 0; border-top: 1px solid var(--line); padding: 72px 0; }
-  .quote blockquote { margin: 0 0 18px; font: 400 clamp(24px, 3vw, 34px)/1.3 var(--serif); font-variation-settings: "SOFT" 100; letter-spacing: -.01em; max-width: 28em; }
+  .quote blockquote { margin: 0 0 18px; font: 500 clamp(24px, 3vw, 34px)/1.3 var(--sans); letter-spacing: -.025em; max-width: 28em; }
   .quote figcaption { color: var(--muted); font-size: 15px; }
   .fb { border-top: 1px solid var(--line); padding: 52px 0; }
-  .fb h3 { margin: 0 0 8px; font-size: 28px; }
+  .fb h3 { margin: 0 0 8px; font-size: 26px; letter-spacing: -.03em; }
   .fb p { color: var(--muted); max-width: 36em; } .fb b { color: var(--fg); font-weight: 600; }
   footer { border-top: 1px solid var(--line); padding: 28px 0 44px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 14px; color: var(--muted); }
   footer .disc { flex-basis: 100%; }
