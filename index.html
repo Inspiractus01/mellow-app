@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://inspiractus01.github.io/mellow-app/">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon-large.png">
-<link rel="preload" href="fonts/wix-display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/mona-sans.woff2" as="font" type="font/woff2" crossorigin>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mellow">
 <meta property="og:title" content="Mellow: Night Shift, but better">
@@ -45,18 +45,17 @@
 }
 </script>
 <style>
-  /* Self-hosted, so no font request leaves for Google. All SIL OFL: Wix Madefor Display for headings, Wix Madefor Text for text,
+  /* Self-hosted, so no font request leaves for Google. All SIL OFL: Mona Sans for headings and text,
      JetBrains Mono where the page shows the app itself (its break screen and commands). */
-  @font-face { font-family: "Wix Madefor Display"; src: url(fonts/wix-display.woff2) format("woff2"); font-weight: 400 800; font-display: swap; }
-  @font-face { font-family: "Wix Madefor Text"; src: url(fonts/wix-text.woff2) format("woff2"); font-weight: 400 800; font-display: swap; }
+  @font-face { font-family: "Mona Sans"; src: url(fonts/mona-sans.woff2) format("woff2"); font-weight: 400 700; font-display: swap; }
   @font-face { font-family: "JetBrains Mono"; src: url(fonts/jetbrains-mono.woff2) format("woff2"); font-weight: 400 500; font-display: swap; }
 
   /* The page is one day: the sun in the hero sets as you scroll and the background warms and darkens (--bg is set by script). */
   :root {
     --bg: #24211d; --raised: #2d2924; --fg: #f1eadf; --muted: #a99f92; --line: rgba(241, 234, 223, .11); --soft: rgba(241, 234, 223, .035);
     --amber: #e2b46b; --ember: #c46a3c;
-    --display: "Wix Madefor Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --sans: "Wix Madefor Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --display: "Mona Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --sans: "Mona Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
   }
   * { box-sizing: border-box; }
@@ -106,7 +105,7 @@
   .what { height: 100vh; min-height: 640px; display: flex; align-items: center; padding-top: 72px; }
   .what-in { width: min(100%, calc((100vh - 300px) * 16 / 9)); margin: 0 auto; }
   .story { display: grid; grid-template-columns: auto 1fr auto; align-items: end; gap: 24px; margin-bottom: 22px; }
-  .clock { font: 500 clamp(40px, 5vw, 64px)/1 var(--display); letter-spacing: -.045em; font-variant-numeric: tabular-nums; }
+  .clock { min-width: 2.55em; font: 500 clamp(40px, 5vw, 64px)/1 var(--display); letter-spacing: -.045em; }
   .steps { display: grid; }
   .step { grid-area: 1 / 1; opacity: 0; transform: translateY(8px); transition: opacity .45s, transform .45s; color: var(--muted); font-size: 17px; }
   .step b { display: block; color: var(--fg); font: 500 22px/1.2 var(--display); letter-spacing: -.025em; margin-bottom: 2px; }
