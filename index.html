@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mellow: a Night Shift alternative that also dims and softens your screen</title>
-<meta name="description" content="Mellow is a free app for Mac, Windows and Linux that warms, dims and softens your screen through the day and reminds you to take eye breaks.">
+<title>Mellow: easier on your eyes, day and night</title>
+<meta name="description" content="Mellow warms and dims your screen as the sun goes down, and reminds you to look away. Free for Mac, Windows and Linux.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="Inspiractus">
 <meta name="application-name" content="Mellow">
@@ -12,11 +12,11 @@
 <link rel="canonical" href="https://inspiractus01.github.io/mellow-app/">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon-large.png">
-<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/wix-display.woff2" as="font" type="font/woff2" crossorigin>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mellow">
 <meta property="og:title" content="Mellow: Night Shift, but better">
-<meta property="og:description" content="A free app for Mac, Windows and Linux that warms, dims and softens your screen through the day, and reminds you to take eye breaks.">
+<meta property="og:description" content="Mellow warms and dims your screen as the sun goes down, and reminds you to look away. Free for Mac, Windows and Linux.">
 <meta property="og:url" content="https://inspiractus01.github.io/mellow-app/">
 <meta property="og:image" content="https://inspiractus01.github.io/mellow-app/og.png">
 <meta property="og:image:width" content="1200">
@@ -24,14 +24,14 @@
 <meta property="og:image:alt" content="Mellow app icon with the text: Save your eyes for later.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mellow: Night Shift, but better">
-<meta name="twitter:description" content="A free app for Mac, Windows and Linux that warms, dims and softens your screen, and reminds you to take eye breaks.">
+<meta name="twitter:description" content="Mellow warms and dims your screen as the sun goes down, and reminds you to look away. Free for Mac, Windows and Linux.">
 <meta name="twitter:image" content="https://inspiractus01.github.io/mellow-app/og.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Mellow",
-  "description": "An app that warms, dims and softens your screen through the day and reminds you to take eye breaks.",
+  "description": "Warms and dims your screen as the sun goes down, and reminds you to look away.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "macOS 14 or later, Windows 10 or later, Linux with Hyprland",
   "url": "https://inspiractus01.github.io/mellow-app/",
@@ -45,16 +45,18 @@
 }
 </script>
 <style>
-  /* Self-hosted, so no font request leaves for Google. Geist (SIL OFL) for everything,
+  /* Self-hosted, so no font request leaves for Google. All SIL OFL: Wix Madefor Display for headings, Wix Madefor Text for text,
      JetBrains Mono where the page shows the app itself (its break screen and commands). */
-  @font-face { font-family: "Geist"; src: url(fonts/geist.woff2) format("woff2"); font-weight: 400 700; font-display: swap; }
+  @font-face { font-family: "Wix Madefor Display"; src: url(fonts/wix-display.woff2) format("woff2"); font-weight: 400 800; font-display: swap; }
+  @font-face { font-family: "Wix Madefor Text"; src: url(fonts/wix-text.woff2) format("woff2"); font-weight: 400 800; font-display: swap; }
   @font-face { font-family: "JetBrains Mono"; src: url(fonts/jetbrains-mono.woff2) format("woff2"); font-weight: 400 500; font-display: swap; }
 
   /* The page is one day: the sun in the hero sets as you scroll and the background warms and darkens (--bg is set by script). */
   :root {
     --bg: #24211d; --raised: #2d2924; --fg: #f1eadf; --muted: #a99f92; --line: rgba(241, 234, 223, .11); --soft: rgba(241, 234, 223, .035);
     --amber: #e2b46b; --ember: #c46a3c;
-    --sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --display: "Wix Madefor Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --sans: "Wix Madefor Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
   }
   * { box-sizing: border-box; }
@@ -67,12 +69,12 @@
   p { margin: 0; }
   :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
-  h1, h2, h3 { font-weight: 600; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 500; }
 
   header.top { position: sticky; top: 0; z-index: 50; transition: background .3s, box-shadow .3s; }
   header.top.scrolled { background: color-mix(in srgb, var(--bg) 78%, transparent); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); }
   header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-  .brand { display: flex; align-items: center; gap: 10px; font: 600 20px/1 var(--sans); letter-spacing: -.02em; text-decoration: none; }
+  .brand { display: flex; align-items: center; gap: 10px; font: 600 20px/1 var(--display); letter-spacing: -.03em; text-decoration: none; }
   .brand img { width: 28px; height: 28px; }
 
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 48px; padding: 0 24px; border-radius: 24px; border: 0; cursor: pointer;
@@ -87,7 +89,7 @@
   /* hero: the headline over a horizon, with the app icon's sun sitting on it */
   .hero { position: relative; display: flex; flex-direction: column; min-height: calc(100svh - 72px); padding: 56px 0 0; }
   .hero .wrap { position: relative; z-index: 2; width: 100%; }
-  h1 { font-size: clamp(54px, 9.4vw, 128px); line-height: .94; letter-spacing: -.055em; margin: 0 0 34px; }
+  h1 { font-size: clamp(54px, 9.4vw, 128px); line-height: .94; letter-spacing: -.05em; margin: 0 0 34px; }
   .lead { font-size: clamp(19px, 2.1vw, 22px); color: var(--muted); max-width: 30em; margin-bottom: 36px; }
   .get-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
   .fine { font-size: 14px; color: var(--muted); }
@@ -127,7 +129,7 @@
   .note { padding: 16px 20px 20px; } .note h5 { margin: 0 0 6px; font: 650 18px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; } .note p { color: #66666c; font-size: 14px; }
 
   section.block { padding: 140px 0 0; }
-  h2 { font-size: clamp(38px, 5vw, 64px); line-height: 1.02; letter-spacing: -.045em; margin: 0 0 20px; max-width: 14ch; }
+  h2 { font-size: clamp(38px, 5vw, 64px); line-height: 1.02; letter-spacing: -.04em; margin: 0 0 20px; max-width: 14ch; }
   .sub { color: var(--muted); font-size: 19px; max-width: 31em; }
   .split { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
   .split img { width: 100%; height: auto; display: block; border-radius: 14px; }
@@ -166,7 +168,7 @@
   .sys h3 { margin: 0; font-size: 28px; line-height: 1; letter-spacing: -.035em; }
   .sys .here { display: none; margin-top: 8px; font-size: 13px; color: var(--amber); }
   .sys.mine .here { display: block; }
-  .sys > .btn { min-width: 172px; }
+  .sys > .btn { min-width: 214px; }
   .sys p { color: var(--muted); font-size: 16px; max-width: 34em; }
   .sys.mine { order: -1; }
   .cmd { grid-column: 2 / -1; display: flex; align-items: center; gap: 12px; margin-top: 10px; padding: 14px 14px 14px 18px; border-radius: 12px;
@@ -183,7 +185,7 @@
   .final h2 { max-width: none; margin: 0 auto 32px; font-size: clamp(42px, 6.4vw, 88px); }
   .final .get-row { justify-content: center; }
   .quote { margin: 0; border-top: 1px solid var(--line); padding: 72px 0; }
-  .quote blockquote { margin: 0 0 18px; font: 500 clamp(24px, 3vw, 34px)/1.3 var(--sans); letter-spacing: -.025em; max-width: 28em; }
+  .quote blockquote { margin: 0 0 18px; font: 500 clamp(24px, 3vw, 34px)/1.3 var(--display); letter-spacing: -.025em; max-width: 28em; }
   .quote figcaption { color: var(--muted); font-size: 15px; }
   .fb { border-top: 1px solid var(--line); padding: 52px 0; }
   .fb h3 { margin: 0 0 8px; font-size: 26px; letter-spacing: -.03em; }
@@ -231,10 +233,10 @@
 <section class="hero">
   <div class="wrap">
     <h1>Save your eyes<br>for later.</h1>
-    <p class="lead">Mellow warms and dims your screen as the evening comes, softens harsh colors and reminds you to look away. For Mac, Windows and Linux.</p>
+    <p class="lead">Mellow warms and dims your screen as the sun goes down, and reminds you to look away.</p>
     <div class="get-row">
       <a class="btn" data-get data-long href="https://github.com/Inspiractus01/mellow-app/releases/latest/download/Mellow.dmg">Download for Mac</a>
-      <span class="fine">Free, no account. Version 0.7.0. <a href="#download">Other systems</a></span>
+      <span class="fine">Free for Mac, Windows and Linux. Version 0.7.0</span>
     </div>
   </div>
   <div class="sky" aria-hidden="true"><div class="sun" id="sun"></div></div>
@@ -265,16 +267,16 @@
   <section class="block">
     <div class="split">
       <div class="txt">
-        <h2>Pick a preset, or forget about it.</h2>
-        <p class="sub">Choose Daylight, Evening or Bedtime yourself. Or turn on Auto: tell Mellow your city and when you wake up, and it adjusts your screen through the day on its own.</p>
+        <h2>Set it once.</h2>
+        <p class="sub">Tell Mellow where you live and when you wake up. It follows the sun and your sleep from there. Rather choose yourself? Pick Daylight, Evening or Bedtime.</p>
       </div>
       <img class="app" decoding="async" src="shot-auto.png" width="779" height="1000" alt="Mellow settings: your city, wake-up time and a plan for the day.">
     </div>
   </section>
 
   <section class="block" id="vs">
-    <h2>More than warmer colors.</h2>
-    <p class="sub">Night Shift only changes the color. Mellow also dims the screen, softens colors and reminds you to take breaks.</p>
+    <h2>More than Night Shift.</h2>
+    <p class="sub">Night Shift only warms the colors. Mellow also dims the screen, softens harsh colors and gets you to take breaks.</p>
     <div class="cmp">
       <figure class="pane" id="pf">
         <h3>Night Shift</h3>
@@ -288,52 +290,52 @@
         <ul class="feat"><li data-k="warm">Warmer colors</li><li data-k="dim">Dimmer screen</li><li data-k="soft">Softer colors</li><li data-k="brk">Break reminders</li></ul>
       </figure>
     </div>
-    <p class="src">Why dimming matters: <a href="https://pubmed.ncbi.nlm.nih.gov/31191118/">a study of Night Shift</a> found that changing the color alone may not be enough to reduce the screen's effect on melatonin, the sleep hormone. Brightness matters too.</p>
+    <p class="src">Warmer color alone may not be enough. In <a href="https://pubmed.ncbi.nlm.nih.gov/31191118/">a study of Night Shift</a>, brightness mattered too.</p>
   </section>
 
   <section class="block">
     <div class="split">
       <img class="brk" decoding="async" src="break.png" width="1280" height="800" alt="Mellow's break screen with a 20 second countdown.">
       <div class="txt">
-        <h2>Filters aren’t enough. Take a break.</h2>
-        <p class="sub">Warmer colors don't rest your eyes. Looking away does. Every 20 minutes, Mellow covers the screen for 20 seconds. Busy? Skip it or push it back 5 minutes. Your eyes would rather you didn't.</p>
-        <p class="src">In <a href="https://www.sciencedirect.com/science/article/pii/S1367048422001990">a 2023 study</a>, two weeks of 20-20-20 break reminders reduced eye strain and dry-eye symptoms.</p>
+        <h2>Look away for a moment.</h2>
+        <p class="sub">Every 20 minutes, Mellow asks you to look away for 20 seconds. It waits until your call or full-screen video ends. Busy? Snooze it for 5 minutes.</p>
+        <p class="src">In <a href="https://www.sciencedirect.com/science/article/pii/S1367048422001990">a 2023 study</a>, two weeks of these breaks reduced eye strain and dry eyes.</p>
       </div>
     </div>
   </section>
 
   <section class="block" id="free">
     <h2>Free. All of it.</h2>
-    <p class="sub">No trial, no upgrade, no account. Every feature is in the download.</p>
+    <p class="sub">No trial, no account, no ads.</p>
     <div class="free">
       <div>
         <h3>Your screen</h3>
-        <ul><li>Warmer, dimmer and softer colors</li><li>Daylight, Evening and Bedtime presets</li><li>Your own presets</li></ul>
+        <ul><li>Warmer, dimmer, softer colors</li><li>Daylight, Evening and Bedtime</li><li>Presets of your own</li></ul>
       </div>
       <div>
         <h3>Your day</h3>
-        <ul><li>An automatic plan from your city and sleep</li><li>Your own schedules</li><li>20-20-20 break reminders</li></ul>
+        <ul><li>Follows the sun and your sleep</li><li>Schedules of your own</li><li>Breaks every 20 minutes</li></ul>
       </div>
     </div>
   </section>
 
   <section class="block" id="download">
     <h2>Get Mellow.</h2>
-    <p class="sub">Same plan, same presets on every system.</p>
+    <p class="sub">Free for Mac, Windows and Linux.</p>
     <div class="systems">
       <div class="sys" data-os="mac">
-        <div><h3>Mac</h3><span class="here">Your system</span></div>
-        <p>A menu bar app for macOS 14 or later, Apple Silicon and Intel. The first time, macOS asks you to allow it in System Settings, Privacy &amp; Security.</p>
-        <a class="btn" href="https://github.com/Inspiractus01/mellow-app/releases/latest/download/Mellow.dmg">Download .dmg</a>
+        <div><h3>Mac</h3><span class="here">Your computer</span></div>
+        <p>macOS 14 or later, Apple Silicon and Intel. On first launch, allow it in System Settings → Privacy &amp; Security.</p>
+        <a class="btn" href="https://github.com/Inspiractus01/mellow-app/releases/latest/download/Mellow.dmg">Download for Mac</a>
       </div>
       <div class="sys" data-os="windows">
-        <div><h3>Windows</h3><span class="here">Your system</span></div>
-        <p>A tray app for Windows 10 and 11. It isn't signed yet, so SmartScreen may stop it: choose More info, then Run anyway.</p>
-        <a class="btn" href="https://github.com/Inspiractus01/mellow-app/releases/latest/download/Mellow.exe">Download .exe</a>
+        <div><h3>Windows</h3><span class="here">Your computer</span></div>
+        <p>Windows 10 and 11. If SmartScreen appears, choose More info → Run anyway.</p>
+        <a class="btn" href="https://github.com/Inspiractus01/mellow-app/releases/latest/download/Mellow.exe">Download for Windows</a>
       </div>
       <div class="sys" data-os="linux">
-        <div><h3>Linux</h3><span class="here">Your system</span></div>
-        <p>For Hyprland, like Omarchy. Uses hyprsunset for warmth and dimming. Settings live in ~/.config/mellow/config.toml.</p>
+        <div><h3>Linux</h3><span class="here">Your computer</span></div>
+        <p>Hyprland, including Omarchy. Paste this in a terminal:</p>
         <span></span>
         <div class="cmd"><code id="cmd">curl -fLo ~/.local/bin/mellow https://github.com/Inspiractus01/mellow-app/releases/latest/download/mellow
 chmod +x ~/.local/bin/mellow
@@ -352,19 +354,19 @@ echo 'exec-once = mellow' >> ~/.config/hypr/autostart.conf</code><button type="b
 
   <figure class="quote">
     <blockquote>“After eye surgery, my eyes got tired fast at the computer. Night Shift wasn’t enough, so I built Mellow. It helped me. Maybe it helps you too.”</blockquote>
-    <figcaption>Inspiractus, software developer and maker of Mellow</figcaption>
+    <figcaption>Inspiractus, maker of Mellow</figcaption>
   </figure>
 
   <section class="fb" id="feedback">
     <h3>Have feedback?</h3>
-    <p>Tell us what works and what doesn't. Email <a href="mailto:lowsunlabs@proton.me?subject=Mellow%20feedback"><b>lowsunlabs@proton.me</b></a>.</p>
+    <p>Tell us what works and what doesn’t at <a href="mailto:lowsunlabs@proton.me?subject=Mellow%20feedback"><b>lowsunlabs@proton.me</b></a>.</p>
   </section>
 
   <footer>
     <span>© 2026 Low Sun Labs. Made by Inspiractus.</span>
     <a href="mailto:lowsunlabs@proton.me">lowsunlabs@proton.me</a>
     <a href="privacy.html">Privacy</a>
-    <span class="disc">Mellow isn't a medical device. If your eyes hurt, see an eye doctor.</span>
+    <span class="disc">Mellow isn’t a medical device. If your eyes hurt, see an eye doctor.</span>
   </footer>
 </div>
 
