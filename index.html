@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mellow: easier on your eyes, day and night</title>
-<meta name="description" content="Mellow eases your screen into the evening, so your eyes don’t have to work as hard. Free for Mac, Windows and Linux.">
+<meta name="description" content="Mellow eases your screen into the evening, so your eyes don’t have to work as hard. Free for Mac and Linux.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="Inspiractus">
 <meta name="application-name" content="Mellow">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mellow">
 <meta property="og:title" content="Mellow: Night Shift, but better">
-<meta property="og:description" content="Mellow eases your screen into the evening, so your eyes don’t have to work as hard. Free for Mac, Windows and Linux.">
+<meta property="og:description" content="Mellow eases your screen into the evening, so your eyes don’t have to work as hard. Free for Mac and Linux.">
 <meta property="og:url" content="https://inspiractus01.github.io/mellow-app/">
 <meta property="og:image" content="https://inspiractus01.github.io/mellow-app/og.png">
 <meta property="og:image:width" content="1200">
@@ -24,7 +24,7 @@
 <meta property="og:image:alt" content="Mellow app icon with the text: Save your eyes for later.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mellow: Night Shift, but better">
-<meta name="twitter:description" content="Mellow eases your screen into the evening, so your eyes don’t have to work as hard. Free for Mac, Windows and Linux.">
+<meta name="twitter:description" content="Mellow eases your screen into the evening, so your eyes don’t have to work as hard. Free for Mac and Linux.">
 <meta name="twitter:image" content="https://inspiractus01.github.io/mellow-app/og.png">
 <script type="application/ld+json">
 {
@@ -33,7 +33,7 @@
   "name": "Mellow",
   "description": "Eases your screen into the evening, so your eyes don’t have to work as hard.",
   "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "macOS 14 or later, Windows 10 or later, Linux with Hyprland",
+  "operatingSystem": "macOS 14 or later, Linux with Hyprland",
   "url": "https://inspiractus01.github.io/mellow-app/",
   "downloadUrl": "https://github.com/Inspiractus01/mellow-app/releases/latest",
   "image": "https://inspiractus01.github.io/mellow-app/icon-large.png",
@@ -247,7 +247,7 @@
     <p class="lead">Mellow eases your screen into the evening, so your eyes don’t have to work as hard.</p>
     <div class="get-row">
       <a class="btn" data-get data-long href="https://github.com/Inspiractus01/mellow-app/releases/latest/download/Mellow.dmg">Download for Mac</a>
-      <span class="fine">Free for Mac, Windows and Linux. Version 0.7.0</span>
+      <span class="fine">Free for Mac and Linux. Version 0.7.0</span>
     </div>
   </div>
   <div class="sky" aria-hidden="true"><div class="sun" id="sun"></div></div>
@@ -344,17 +344,12 @@
 
   <section class="block" id="download">
     <h2>Get Mellow.</h2>
-    <p class="sub">Free for Mac, Windows and Linux.</p>
+    <p class="sub">Free for Mac and Linux.</p>
     <div class="systems">
       <div class="sys" data-os="mac">
         <div><h3>Mac</h3><span class="here">Your computer</span></div>
         <p>macOS 14 or later, Apple Silicon and Intel. On first launch, allow it in System Settings → Privacy &amp; Security.</p>
         <a class="btn" href="https://github.com/Inspiractus01/mellow-app/releases/latest/download/Mellow.dmg">Download for Mac</a>
-      </div>
-      <div class="sys" data-os="windows">
-        <div><h3>Windows</h3><span class="here">Your computer</span></div>
-        <p>Windows 10 and 11. If SmartScreen appears, choose More info → Run anyway.</p>
-        <a class="btn" href="https://github.com/Inspiractus01/mellow-app/releases/latest/download/Mellow.exe">Download for Windows</a>
       </div>
       <div class="sys" data-os="linux">
         <div><h3>Linux</h3><span class="here">Your computer</span></div>
@@ -397,9 +392,9 @@ echo 'exec-once = mellow' >> ~/.config/hypr/autostart.conf</code><button type="b
 // Downloads follow the visitor's system; without script everything points at the Mac download.
 (function () {
   const ua = navigator.userAgent;
-  const os = /Windows/.test(ua) ? "windows" : /Linux|X11|CrOS/.test(ua) && !/Android/.test(ua) ? "linux" : "mac";
+  const os = /Linux|X11|CrOS/.test(ua) && !/Android/.test(ua) ? "linux" : "mac";
   const base = "https://github.com/Inspiractus01/mellow-app/releases/latest/download/";
-  const get = { mac: [base + "Mellow.dmg", "Mac"], windows: [base + "Mellow.exe", "Windows"], linux: ["#download", "Linux"] }[os];
+  const get = { mac: [base + "Mellow.dmg", "Mac"], linux: ["#download", "Linux"] }[os];
   document.querySelectorAll("[data-get]").forEach(a => {
     a.href = get[0];
     if (a.hasAttribute("data-long")) a.textContent = (os === "linux" ? "Get Mellow for " : "Download for ") + get[1];
